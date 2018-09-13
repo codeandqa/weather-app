@@ -87,7 +87,7 @@ const styles = theme => ({
     padding: theme.spacing.unit * 3,
     height: '100vh',
     overflow: 'auto',
-    background: 'linear-gradient(to right bottom, #430089, #82ffa1)',
+    background: 'linear-gradient(to right bottom, #82ffa1, #430089 )',
   },
   chartContainer: {
     marginLeft: -22,
