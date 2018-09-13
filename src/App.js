@@ -14,8 +14,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import { mainListItems, secondaryListItems } from './Components/listItems';
 import {BrowserRouter, Route} from 'react-router-dom';
-import CityCountry from './Components/CityCountry';
-import Forecast from './Components/Forecast';
+import CityCountry from './Components/Citywise/CityCountry';
+import Forecast from './Components/Forecast/Forecast';
 const drawerWidth = 240;
 
 const styles = theme => ({

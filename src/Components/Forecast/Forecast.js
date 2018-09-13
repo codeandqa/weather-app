@@ -1,13 +1,5 @@
 import React from 'react';
 import ZipCodeInput from './ZipCodeInput';
-// import ResponsiveContainer from 'recharts/lib/component/ResponsiveContainer';
-// import LineChart from 'recharts/lib/chart/LineChart';
-// import Line from 'recharts/lib/cartesian/Line';
-// import XAxis from 'recharts/lib/cartesian/XAxis';
-// import YAxis from 'recharts/lib/cartesian/YAxis';
-// import CartesianGrid from 'recharts/lib/cartesian/CartesianGrid';
-// import Tooltip from 'recharts/lib/component/Tooltip';
-// import Legend from 'recharts/lib/component/Legend';
 import Typography from '@material-ui/core/Typography';
 import ForecastChart from './ForecastChart';
 const API_KEY='134d59bca896ab163d77fc4e06cbd20e';
