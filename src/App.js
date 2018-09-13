@@ -23,7 +23,9 @@ const styles = theme => ({
     display: 'flex',
   },
   toolbar: {
-    paddingRight: 24, // keep right padding when drawer closed
+    paddingRight: 24,
+    background: 'linear-gradient(to right bottom, skyblue, white)',
+    // keep right padding when drawer closed
   },
   toolbarIcon: {
     display: 'flex',
@@ -45,6 +47,8 @@ const styles = theme => ({
     transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
+      background: 'linear-gradient(to right bottom, #430089, #82ffa1)',
+
     }),
   },
   menuButton: {
@@ -83,6 +87,7 @@ const styles = theme => ({
     padding: theme.spacing.unit * 3,
     height: '100vh',
     overflow: 'auto',
+    background: 'linear-gradient(to right bottom, #430089, #82ffa1)',
   },
   chartContainer: {
     marginLeft: -22,
