@@ -9,7 +9,7 @@ import ZipCodeInput from './ZipCodeInput';
 // import Tooltip from 'recharts/lib/component/Tooltip';
 // import Legend from 'recharts/lib/component/Legend';
 import Typography from '@material-ui/core/Typography';
-import SimpleLineChart from './SimpleLineChart';
+import ForecastChart from './ForecastChart';
 const API_KEY='134d59bca896ab163d77fc4e06cbd20e';
 
 
@@ -28,7 +28,7 @@ class Forecast extends React.Component {
       var len = data.list.length;
       for (var i = 0; i < len; i++) {
         arr.push({
-              name: data.list[i].dt_txt,
+              datetime: data.list[i].dt_txt,
               Humidity: data.list[i].main.humidity,
               Temperature: data.list[i].main.temp
           });
@@ -48,7 +48,7 @@ class Forecast extends React.Component {
           <ZipCodeInput getWeather={this.getWeather} />
           
           { 
-            this.state.forecast   &&  <SimpleLineChart forecastData={this.state.forecast} /> 
+            this.state.forecast   &&  <ForecastChart forecastData={this.state.forecast} /> 
           }
         </div>
       )
