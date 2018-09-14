@@ -7,7 +7,7 @@ const ZipCodeInput = props =>(
         <TextField 
             name='zipCode'
             label="Zip"
-            helperText="Enter Zip Code"
+            helperText="Enter US Zip Code"
         />
     </form>
     </div>

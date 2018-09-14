@@ -2,32 +2,40 @@ import React from 'react';
 import ZipCodeInput from './ZipCodeInput';
 import Typography from '@material-ui/core/Typography';
 import ForecastChart from './ForecastChart';
-const API_KEY='134d59bca896ab163d77fc4e06cbd20e';
+import { ENDPOINT, API_KEY } from '../../constants/constants';
+// const API_KEY='134d59bca896ab163d77fc4e06cbd20e';
 
 
 class Forecast extends React.Component {
   state = {
-    forecast: []
+    forecast: [],
+    error: undefined
   };
   
   getWeather = async (e) => {
     e.preventDefault();
     const zipCode = e.target.zipCode.value;
     if (zipCode) {
-      const api_call = await fetch(`https://api.openweathermap.org/data/2.5/forecast/?zip=${zipCode}&appid=${API_KEY}&units=imperial`);
-      const data = await api_call.json();
-      var arr = [];
-      var len = data.list.length;
-      for (var i = 0; i < len; i++) {
-        arr.push({
-              datetime: data.list[i].dt_txt,
-              Humidity: data.list[i].main.humidity,
-              Temperature: data.list[i].main.temp
-          });
-      }
-      this.setState({
-        forecast: arr
-      });
+      await fetch(ENDPOINT+`forecast/?zip=${zipCode}&appid=${API_KEY}&units=imperial`)
+            .then(response => response.json())
+            .then(
+              data => {
+                var arr = [];
+                var len = data.list.length;
+                for (var i = 0; i < len; i++) {
+                  arr.push({
+                        datetime: data.list[i].dt_txt,
+                        Humidity: data.list[i].main.humidity,
+                        Temperature: data.list[i].main.temp
+                    });
+                }
+                this.setState({
+                  forecast: arr,
+                  error: undefined
+                });
+              }
+            )
+            .catch(error => this.setState({ error, forecast: [] }));
     } 
   };
 
@@ -38,9 +46,11 @@ class Forecast extends React.Component {
                 5 day / 3 hour forecast
               </Typography>
           <ZipCodeInput getWeather={this.getWeather} />
-          
           { 
-            this.state.forecast   &&  <ForecastChart forecastData={this.state.forecast} /> 
+            !this.state.error   &&  <ForecastChart forecastData={this.state.forecast} /> 
+          }
+          {
+            this.state.error && <span>{this.state.errror}</span>
           }
         </div>
       )
