@@ -17,40 +17,42 @@ class Forecast extends React.Component {
     const zipCode = e.target.zipCode.value;
     if (zipCode) {
       await fetch(ENDPOINT+`forecast/?zip=${zipCode}&appid=${API_KEY}&units=imperial`)
-            .then(response => response.json())
+            .then(response => {
+                if(!response.ok) {
+                  throw new Error(response.status);
+                } else return response.json();
+            })
             .then(
               data => {
-                var arr = [];
+                var fdata = [];
                 var len = data.list.length;
                 for (var i = 0; i < len; i++) {
-                  arr.push({
+                 fdata.push({
                         datetime: data.list[i].dt_txt,
                         Humidity: data.list[i].main.humidity,
                         Temperature: data.list[i].main.temp
                     });
                 }
                 this.setState({
-                  forecast: arr,
+                  forecast: fdata,
                   error: undefined
                 });
               }
             )
-            .catch(error => this.setState({ error, forecast: [] }));
+            .catch(error => this.setState({ forecast: [] , error: error.toString() }));
     } 
   };
 
     render() {
       return (
         <div>
-          <Typography variant="display1" gutterBottom>
-                5 day / 3 hour forecast
-              </Typography>
+          <Typography variant="display1" gutterBottom>5 day / 3 hour forecast</Typography>
           <ZipCodeInput getWeather={this.getWeather} />
           { 
-            !this.state.error   &&  <ForecastChart forecastData={this.state.forecast} /> 
+            this.state.error === undefined  &&  <ForecastChart forecastData={this.state.forecast} /> 
           }
           {
-            this.state.error && <span>{this.state.errror}</span>
+            this.state.error  &&  <p>{this.state.error}</p>
           }
         </div>
       )
