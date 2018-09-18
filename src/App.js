@@ -4,7 +4,7 @@ import classNames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import CityCountry from "./components/Citywise/CityCountry";
 import Forecast from "./components/Forecast/Forecast";
 import Header from "./components/Header/Header";
@@ -96,22 +96,24 @@ class App extends React.Component {
       <React.Fragment>
         <CssBaseline />
         <BrowserRouter>
-          <div className={classes.root}>
-            <Header />
-            <main className={classes.content}>
-              <div className={classes.appBarSpacer} />
+          <Switch>
+            <div className={classes.root}>
+              <Header />
+              <main className={classes.content}>
+                <div className={classes.appBarSpacer} />
 
-              <Route
-                path="/citycounty"
-                render={props => <CityCountry {...props} />}
-              />
+                <Route
+                  path="/citycounty"
+                  render={props => <CityCountry {...props} />}
+                />
 
-              <Route
-                path="/forecast"
-                render={props => <Forecast {...props} />}
-              />
-            </main>
-          </div>
+                <Route
+                  path="/forecast"
+                  render={props => <Forecast {...props} />}
+                />
+              </main>
+            </div>
+          </Switch>
         </BrowserRouter>
       </React.Fragment>
     );
