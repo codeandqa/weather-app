@@ -8,6 +8,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import CityCountry from "./components/Citywise/CityCountry";
 import Forecast from "./components/Forecast/Forecast";
 import Header from "./components/Header/Header";
+import TestComp from "./components/TestComp/TestComp";
 const drawerWidth = 240;
 
 const styles = theme => ({
@@ -110,6 +111,11 @@ class App extends React.Component {
                 <Route
                   path="/forecast"
                   render={props => <Forecast {...props} />}
+                />
+
+                <Route
+                  path="/test/"
+                  render={props => <TestComp {...props} />}
                 />
               </main>
             </div>

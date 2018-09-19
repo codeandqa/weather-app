@@ -5,6 +5,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ListSubheader from "@material-ui/core/ListSubheader";
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import BarChartIcon from "@material-ui/icons/BarChart";
+import DeleteSharp from "@material-ui/icons/DeleteSharp";
 import AssignmentIcon from "@material-ui/icons/Assignment";
 import { NavLink } from "react-router-dom";
 export const mainListItems = (
@@ -19,19 +20,19 @@ export const mainListItems = (
     </NavLink>
 
     <NavLink to="/Forecast">
-      <ListItem button component="a">
+      <ListItem button>
         <ListItemIcon>
           <BarChartIcon />
         </ListItemIcon>
         <ListItemText primary="Forecast" />
       </ListItem>
     </NavLink>
-    <NavLink to="/Forecast">
-      <ListItem button component="a">
+    <NavLink to="/test">
+      <ListItem button>
         <ListItemIcon>
-          <BarChartIcon />
+          <DeleteSharp />
         </ListItemIcon>
-        <ListItemText primary="Forecast" />
+        <ListItemText primary="Test" />
       </ListItem>
     </NavLink>
   </div>
