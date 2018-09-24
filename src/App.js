@@ -9,6 +9,7 @@ import CityCountry from "./components/Citywise/CityCountry";
 import Forecast from "./components/Forecast/Forecast";
 import Header from "./components/Header/Header";
 import TestComp from "./components/TestComp/TestComp";
+import HomePage from "./components/HomePage/HomePage";
 const drawerWidth = 240;
 
 const styles = theme => ({
@@ -102,6 +103,11 @@ class App extends React.Component {
               <Header />
               <main className={classes.content}>
                 <div className={classes.appBarSpacer} />
+                <Route
+                  path="/"
+                  component={HomePage}
+                  exact
+                />
 
                 <Route
                   path="/citycounty"
