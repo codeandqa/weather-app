@@ -8,18 +8,19 @@
     "ajv-keywords": "^3.2.0",
     "react": "^16.5.0",
     "react-dom": "^16.5.0",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.5",
+    "react-test-renderer": "^16.5.2",
     "recharts": "^1.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "cypress:open": "cypress open"
+    "test": "jest",
+    "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "cypress": "^3.1.0",
-    "jest": "^23.6.0"
+    "jest": "^23.6.0",
+    "react-router-dom": "^4.3.1"
   }
 }

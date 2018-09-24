@@ -18,7 +18,7 @@ const Form = props => (
           helperText="Enter Country Name"
           margin="normal"
           name="country"
-        />
+        /> &nbsp;
         <Button type="submit" variant="contained" color="primary" > Check Weather</Button>
     </form>
   </div>
