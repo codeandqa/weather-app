@@ -3,7 +3,7 @@ import Form from './Form';
 import Weather from './Weather';
 import Typography from '@material-ui/core/Typography';
 const API_KEY='134d59bca896ab163d77fc4e06cbd20e';
-
+// import { forecastFromZip } from './../../actions/API';
 
 
 class CityCountry extends React.Component {
@@ -32,6 +32,7 @@ class CityCountry extends React.Component {
             description: data.weather[0].description,
             error: ""
           });
+          // forecastFromZip();
         } else {
           this.setState({
             temperature: undefined,

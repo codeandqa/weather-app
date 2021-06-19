@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 
 const Form = props => (
@@ -19,7 +19,7 @@ const Form = props => (
           margin="normal"
           name="country"
         /> &nbsp;
-        <Button type="submit" variant="contained" color="primary" > Check Weather</Button>
+        <Button type="submit" className="slds-button slds-button_brand" > Check Weather</Button>
     </form>
   </div>
 );
